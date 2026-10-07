@@ -18,9 +18,42 @@
 	<main>
 		<h1>Tramonto</h1>
         <h2>Synopsis</h2>
+		<p>Something Something, about the game. Will remove later. Aslo add the gameplay video on the right side.</p>
+		<h2>Screenshots</h2>
+
+		<div class="screenshot-gallery" aria-label="Tramonto screenshots">
+			<button class="screenshot-button" type="button" data-image="Images/Game/Game1-Tramonto.jpg" aria-label="View Tramonto screenshot larger">
+				<img src="Images/Game/Game1-Tramonto.jpg" alt="Tramonto game preview">
+			</button>
+		</div>
+		<dialog class="screenshot-dialog" id="screenshot-dialog">
+			<button class="close-screenshot" type="button" aria-label="Close screenshot">×</button>
+			<img class="screenshot-preview" src="Images/Game/Game1-Tramonto.jpg" alt="Tramonto screenshot enlarged">
+		</dialog>
+
         <h2>Background</h2>
-        <h2>Screenshots</h2>
-		<h2>Link</h2>
+		<p>Background Information About the Game.</p>
+		<h2>Link To Game:</h2>
+		<a href="https://puffinglaze.itch.io/tramonto-demo">https://puffinglaze.itch.io/tramonto-demo</a>
 	</main>
+	<script>
+		const screenshotButton = document.querySelector('.screenshot-button');
+		const screenshotDialog = document.querySelector('.screenshot-dialog');
+		const screenshotPreview = document.querySelector('.screenshot-preview');
+		const closeScreenshot = document.querySelector('.close-screenshot');
+
+		screenshotButton.addEventListener('click', () => {
+			screenshotPreview.src = screenshotButton.dataset.image;
+			screenshotPreview.alt = 'Tramonto screenshot enlarged';
+			screenshotDialog.showModal();
+		});
+		closeScreenshot.addEventListener('click', () => screenshotDialog.close());
+
+		screenshotDialog.addEventListener('click', (event) => {
+			if (event.target === screenshotDialog) {
+				screenshotDialog.close();
+			}
+		});
+	</script>
 </body>
 </html>
