@@ -82,7 +82,7 @@ h1 {
 
 .synopsis-layout {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
     gap: 1.5rem;
     align-items: start;
 }
@@ -90,13 +90,12 @@ h1 {
 .video-player video {
     display: block;
     width: 100%;
-    aspect-ratio: 16 / 9;
-    border-radius: 8px;
+    aspect-ratio: 16 / 9;    border: 5px solid #ffffff;    border-radius: 8px;
     background: #000;
 }
 
 .video-player {
-    transform: translateX(100px);
+    transform: translateX(180px);
 }
 
 .game-card {
