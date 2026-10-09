@@ -8,7 +8,7 @@
 </head>
 <body>
 	<header>
-	    <a class="brand" href="HomePage.html">James Zheng</a>
+	    <a>James Zheng</a>
 		<nav aria-label="Main navigation">
 			<a href="About.html">About</a>
             <a href="Portfolio.html">Projects</a>
@@ -37,14 +37,14 @@
 			<button class="screenshot-button" type="button" data-image="Images/Game/DarkPath-Screenshot-2.png" aria-label="View Darkpath screenshot 2 larger">
 				<img src="Images/Game/DarkPath-Screenshot-2.png" alt="Darkpath screenshot 2">
 			</button>
-            <button class="screenshot-button" type="button" data-image="Images/Game/DarkPath-Screenshot-3.png" aria-label="View Darkpath screenshot 3 larger">
+			<button class="screenshot-button" type="button" data-image="Images/Game/DarkPath-Screenshot-3.png" aria-label="View Darkpath screenshot 3 larger">
 				<img src="Images/Game/DarkPath-Screenshot-3.png" alt="Darkpath screenshot 3">
-            <button class="screenshot-button" type="button" data-image="Images/Game/DarkPath-Screenshot-4.png" aria-label="View Darkpath screenshot 4 larger">
+			</button>
+			<button class="screenshot-button" type="button" data-image="Images/Game/DarkPath-Screenshot-4.png" aria-label="View Darkpath screenshot 4 larger">
 				<img src="Images/Game/DarkPath-Screenshot-4.png" alt="Darkpath screenshot 4">
 			</button>
-            <button class="screenshot-button" type="button" data-image="Images/Game/DarkPath-Screenshot-5.png" aria-label="View Darkpath screenshot 5 larger">
+			<button class="screenshot-button" type="button" data-image="Images/Game/DarkPath-Screenshot-5.png" aria-label="View Darkpath screenshot 5 larger">
 				<img src="Images/Game/DarkPath-Screenshot-5.png" alt="Darkpath screenshot 5">
-			</button>
 			</button>
 		</div>
 		<dialog class="screenshot-dialog" id="screenshot-dialog" aria-label="Enlarged Darkpath screenshot">
@@ -55,29 +55,6 @@
         <h2>Background</h2>
 		<p>One of my first ever developed game, it was a final project from the Animation & Games course. To differiantiate from othe rprojects, I decided to do the extra work and gave it a darker environment, and some sort of eldritch being chasing the player.</p>
 	</main>
-	<script>
-		const screenshotGallery = document.querySelector('.screenshot-gallery');
-		const screenshotDialog = document.querySelector('.screenshot-dialog');
-		const screenshotPreview = document.querySelector('.screenshot-preview');
-		const closeScreenshot = document.querySelector('.close-screenshot');
-
-		screenshotGallery.addEventListener('click', (event) => {
-			const screenshotButton = event.target.closest('.screenshot-button');
-			if (!screenshotButton) {
-				return;
-			}
-
-			screenshotPreview.src = screenshotButton.dataset.image;
-			screenshotPreview.alt = screenshotButton.querySelector('img').alt;
-			screenshotDialog.showModal();
-		});
-		closeScreenshot.addEventListener('click', () => screenshotDialog.close());
-
-		screenshotDialog.addEventListener('click', (event) => {
-			if (event.target === screenshotDialog) {
-				screenshotDialog.close();
-			}
-		});
-	</script>
+	<script src="screenshot-gallery.js"></script>
 </body>
 </html>

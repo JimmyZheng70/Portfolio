@@ -8,7 +8,7 @@
 </head>
 <body>
 	<header>
-	    <a class="brand" href="HomePage.html">James Zheng</a>
+	    <a>James Zheng</a>
 		<nav aria-label="Main navigation">
 			<a href="About.html">About</a>
             <a href="Portfolio.html">Projects</a>
@@ -47,29 +47,6 @@
 		<p>From the Programming Fundamentals Course at UTD, as a final project. Using Python code, I was able to replicate the basic Breakout mechanics, and most importantly create a way to check the colors using true/false statements.</p>
 		<a href="">Link to Game.</a>
 	</main>
-	<script>
-		const screenshotGallery = document.querySelector('.screenshot-gallery');
-		const screenshotDialog = document.querySelector('.screenshot-dialog');
-		const screenshotPreview = document.querySelector('.screenshot-preview');
-		const closeScreenshot = document.querySelector('.close-screenshot');
-
-		screenshotGallery.addEventListener('click', (event) => {
-			const screenshotButton = event.target.closest('.screenshot-button');
-			if (!screenshotButton) {
-				return;
-			}
-
-			screenshotPreview.src = screenshotButton.dataset.image;
-			screenshotPreview.alt = screenshotButton.querySelector('img').alt;
-			screenshotDialog.showModal();
-		});
-		closeScreenshot.addEventListener('click', () => screenshotDialog.close());
-
-		screenshotDialog.addEventListener('click', (event) => {
-			if (event.target === screenshotDialog) {
-				screenshotDialog.close();
-			}
-		});
-	</script>
+	<script src="screenshot-gallery.js"></script>
 </body>
 </html>
