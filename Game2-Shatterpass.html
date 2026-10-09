@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Shatterpass - James Zheng</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<header>
+	    <a class="brand" href="HomePage.html">James Zheng</a>
+		<nav aria-label="Main navigation">
+			<a href="About.html">About</a>
+            <a href="Portfolio.html">Projects</a>
+			<a href="Contact.html">Contact</a>
+        </nav>
+	</header>
+	<main>
+		<h1>Shatterpass</h1>
+		<section class="synopsis-layout" aria-labelledby="synopsis-heading">
+			<div>
+				<h2 id="synopsis-heading">Synopsis</h2>
+				<p>Like the game Breakout, but the paddle must match with the color of the ball after each bounce or else lose.</p>
+			</div>
+			<div class="video-player">
+				<video controls playsinline preload="metadata" aria-label="Shatterpass Gameplay Video">
+					<source src="Videos/ShatterPass.mp4" type="video/mp4">
+				</video>
+			</div>
+		</section>
+		<h2>Screenshots</h2>
+
+		<div class="screenshot-gallery" aria-label="Shatterpass screenshots">
+			<button class="screenshot-button" type="button" data-image="Images/Game/Shatterpass-Screenshot-1.png" aria-label="View Shatterpass screenshot 1 larger">
+				<img src="Images/Game/Shatterpass-Screenshot-1.png" alt="Shatterpass screenshot 1">
+			</button>
+			<button class="screenshot-button" type="button" data-image="Images/Game/Shatterpass-Screenshot-2.png" aria-label="View Shatterpass screenshot 2 larger">
+				<img src="Images/Game/Shatterpass-Screenshot-2.png" alt="Shatterpass screenshot 2">
+			</button>
+		</div>
+		<dialog class="screenshot-dialog" id="screenshot-dialog" aria-label="Enlarged Shatterpass screenshot">
+			<button class="close-screenshot" type="button" aria-label="Close screenshot">×</button>
+			<img class="screenshot-preview" alt="Enlarged Shatterpass screenshot">
+		</dialog>
+
+        <h2>Background</h2>
+		<p>From the Programming Fundamentals Course at UTD, as a final project. Using Python code, I was able to replicate the basic Breakout mechanics, and most importantly create a way to check the colors using true/false statements.</p>
+		<a href="">Link to Game.</a>
+	</main>
+	<script>
+		const screenshotGallery = document.querySelector('.screenshot-gallery');
+		const screenshotDialog = document.querySelector('.screenshot-dialog');
+		const screenshotPreview = document.querySelector('.screenshot-preview');
+		const closeScreenshot = document.querySelector('.close-screenshot');
+
+		screenshotGallery.addEventListener('click', (event) => {
+			const screenshotButton = event.target.closest('.screenshot-button');
+			if (!screenshotButton) {
+				return;
+			}
+
+			screenshotPreview.src = screenshotButton.dataset.image;
+			screenshotPreview.alt = screenshotButton.querySelector('img').alt;
+			screenshotDialog.showModal();
+		});
+		closeScreenshot.addEventListener('click', () => screenshotDialog.close());
+
+		screenshotDialog.addEventListener('click', (event) => {
+			if (event.target === screenshotDialog) {
+				screenshotDialog.close();
+			}
+		});
+	</script>
+</body>
+</html>
